@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>image/addRef.png</file>
+        <file>image/clear.png</file>
+        <file>image/construct.png</file>
+        <file>image/export.png</file>
+        <file>image/frame.png</file>
+        <file>image/loadSketch.png</file>
+        <file>image/saveStroke.png</file>
+        <file>image/undo.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1216</width>
+    <height>935</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PlantCreator</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="PainterView" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>521</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="SketchView" name="reducedWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>450</y>
+      <width>521</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="TriangulationView" name="triangulationView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>450</y>
+      <width>471</width>
+      <height>311</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="HJGWidget" name="openGLWidget">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>491</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>20</y>
+      <width>161</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="settingTab">
+     <attribute name="title">
+      <string>Setting</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>236</y>
+        <width>141</width>
+        <height>157</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Petal Texture</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="petalTex"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Branch Texture</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="branchTex"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Leaf Texture</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="leafTex"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sampling Gap</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>278</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QSlider" name="thresholdSlider">
+         <property name="minimum">
+          <number>4</number>
+         </property>
+         <property name="maximum">
+          <number>30</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="thresholdLabel">
+         <property name="text">
+          <string>10</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>121</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Base branch radius</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="baseRadius">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>100</y>
+        <width>111</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <double>0.010000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.010000000000000</double>
+      </property>
+      <property name="value">
+       <double>0.200000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>GrowthGap</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>180</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>GrowthRate</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>177</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="branchGrowthPointGap">
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="value">
+          <double>20.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>L</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="leafGrowthPointGap">
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="value">
+          <double>10.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>177</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>B</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="branchGrowthRate">
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="value">
+          <double>5.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>L</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="leafGrowthRate">
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
+         <property name="value">
+          <double>5.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>141</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>Bend</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="bendFactor"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Cave</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="caveFactor"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="debugTab">
+     <attribute name="title">
+      <string>Debug</string>
+     </attribute>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>113</width>
+        <height>170</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QCheckBox" name="showDebug">
+         <property name="text">
+          <string>Debug View</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="showReducedBtn">
+         <property name="text">
+          <string>Analyze</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="petalCombo"/>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="printEdge">
+         <property name="text">
+          <string>edge points</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="printAllPoints">
+         <property name="text">
+          <string>all points</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="delaunay">
+         <property name="text">
+          <string>Delaunay</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="saveBtn">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>111</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Sketch</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="saveReduced">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>270</y>
+        <width>111</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Save Analysis</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="rotateToXZ">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rotate Flower
+To XZ Plane</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionLoad_Sketch"/>
+   <addaction name="actionExport_Sketch"/>
+   <addaction name="actionExport_Obj"/>
+   <addaction name="actionUndo"/>
+   <addaction name="actionAdd_Ref"/>
+   <addaction name="actionClearAll"/>
+   <addaction name="actionClearModel"/>
+   <addaction name="separator"/>
+   <addaction name="actionConstruct"/>
+   <addaction name="separator"/>
+   <addaction name="actionFrame"/>
+   <addaction name="actiontest"/>
+  </widget>
+  <action name="actionLoad_Sketch">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/loadSketch.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>LoadSketch</string>
+   </property>
+  </action>
+  <action name="actionExport_Sketch">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/export.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>ExportSketch</string>
+   </property>
+  </action>
+  <action name="actionExport_Obj">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/saveStroke.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>ExportObj</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/undo.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionAdd_Ref">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/addRef.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Add Ref</string>
+   </property>
+  </action>
+  <action name="actionClearAll">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/clear.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>ClearAll</string>
+   </property>
+  </action>
+  <action name="actionFrame">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/frame.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Frame</string>
+   </property>
+  </action>
+  <action name="actionConstruct">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/construct.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Construct</string>
+   </property>
+  </action>
+  <action name="actionClearModel">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/clear.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>ClearModel</string>
+   </property>
+  </action>
+  <action name="actiontest">
+   <property name="icon">
+    <iconset>
+     <normalon>:/icon/image/clear.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>test</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>PainterView</class>
+   <extends>QWidget</extends>
+   <header location="global">painterview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SketchView</class>
+   <extends>QWidget</extends>
+   <header location="global">sketchview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>HJGWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>HJGWidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TriangulationView</class>
+   <extends>QWidget</extends>
+   <header>triangulationview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
