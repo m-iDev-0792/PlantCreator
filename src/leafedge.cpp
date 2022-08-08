@@ -3,7 +3,7 @@
 HJGraphics::Shader* LeafEdge::defaultShader=nullptr;
 LeafEdge::LeafEdge(const std::vector<PetalStroke3D>& leafstroke3ds)
 {
-  if(defaultShader==nullptr)defaultShader=new HJGraphics::Shader("/Users/hezhenbang/Documents/HJGraphics/Shaders/gridVertex.glsl","/Users/hezhenbang/Documents/HJGraphics/Shaders/gridFragment.glsl");
+  if(defaultShader==nullptr)defaultShader=new HJGraphics::Shader("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Shaders/gridVertex.glsl","/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Shaders/gridFragment.glsl");
 
   model=glm::mat4(1.0f);
   lineColor=glm::vec3(0.8f,0.0f,0.0f);

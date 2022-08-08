@@ -36,7 +36,7 @@ namespace HJGraphics {
 
 		void setDefaultFramebuffer(GLint _defaultFramebuffer);
 
-	private:
+	public:
 		glm::vec3 clearColor;
 		std::vector<BasicGLObject *> objects;
 		std::vector<Camera *> cameras;

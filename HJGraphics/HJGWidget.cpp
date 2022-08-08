@@ -108,22 +108,22 @@ void HJGWidget::initializeGL(){
   Coordinate* coord=new Coordinate;
   Grid* grid=new Grid(1.0f,5,GRIDMODE::XY);//GRIDMODE::YZ|
   Skybox* skybox=new Skybox(30,
-                              string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_rt.tga"),
-                                                          string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_lf.tga"),
-                                                          string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_up.tga"),
-                                                          string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_dn.tga"),
-                                                          string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_bk.tga"),
-                                                          string("/Users/hezhenbang/Documents/Models/cubeMaps/envmap_miramar/miramar_ft.tga"));
+                              string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_rt.tga"),
+                                                          string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_lf.tga"),
+                                                          string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_up.tga"),
+                                                          string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_dn.tga"),
+                                                          string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_bk.tga"),
+                                                          string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/envmap_miramar/miramar_ft.tga"));
 
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_right.jpg"),
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_left.jpg"),
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_up.jpg"),
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_down.jpg"),
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_back.jpg"),
-//                            string("/Users/hezhenbang/Documents/Models/cubeMaps/grass/grass_front.jpg"));
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_right.jpg"),
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_left.jpg"),
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_up.jpg"),
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_down.jpg"),
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_back.jpg"),
+//                            string("/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/grass/grass_front.jpg"));
 
 
-  Plane* plane=new Plane(16,16,"/Users/hezhenbang/Documents/HJGraphics/Textures/chessboard.jpg",2);
+  Plane* plane=new Plane(16,16,"/Users/hezhenbang/Documents/C++/PlantCreator/HJGraphics/Textures/chessboard.jpg",2);
   plane->model=glm::translate(plane->model,glm::vec3(0,-7,0));
   Box* box=new Box(2,2,2);
   physicsBox=box;
@@ -134,12 +134,12 @@ void HJGWidget::initializeGL(){
   glm::vec3 cameraPos=glm::vec3(5.0f,5.0f,10.0f);
   glm::vec3 cameraDirection=glm::vec3(0.0f, 0.0f, 0.0f)-cameraPos;
   Camera* camera=new Camera(cameraPos,cameraDirection,4 / 3.0f, 45.0f);
-  Scene* scene=new Scene(this->width()*this->devicePixelRatioF(),this->height()*this->devicePixelRatioF(),0.2f,glm::vec3(0.0f,0.0f,1.0f));
+  Scene* scene=new Scene(this->width()*this->devicePixelRatioF(),this->height()*this->devicePixelRatioF(),0.2f,glm::vec3(1.0f,1.0f,1.0f));
   scene->addCamera(*camera);
-  scene->addObject(*grid);
-  scene->addObject(*coord);
+  //scene->addObject(*grid);
+  //scene->addObject(*coord);
   scene->addObject(*plane);
-  scene->addObject(*skybox);
+  //scene->addObject(*skybox);
 //  scene->addObject(*box);
   scene->addLight(*paraLight);
   addScene(*scene);
@@ -154,7 +154,8 @@ void HJGWidget::paintGL(){
       glPolygonMode(GL_FRONT_AND_BACK ,GL_FILL );
     }
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  glClearColor(0, 0.5, 0.5, 1);
+  auto cc=currentScene->clearColor;
+  glClearColor(cc.x, cc.y, cc.z, 1);
   if(currentScene==nullptr)return;
   currentScene->writeSharedUBOData();
   currentScene->setDefaultFramebuffer(this->defaultFramebufferObject());

@@ -8,11 +8,12 @@
 #include <vector>
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
+#include <opencv2/imgproc.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 //NOTE change texRootDir for right texture directory!
-const QString GlobalTexturePath=QString("/Users/hezhenbang/Desktop/");
+const QString GlobalTexturePath=QString("/Users/hezhenbang/Documents/C++/PlantCreator/");
 
 const int POINT_STEP=8;
 const int FIRST_POINT=0;
