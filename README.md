@@ -20,8 +20,10 @@ Once sketch is completed, click ```construct``` button and a plant model is on t
 
 ![](image/MD-demo.png)
 
+![](image/MD-RecResult.png)
+
 **Real plant photo vs model rendering result:**
 
-![](image/MD-compare.png)
+![](image/MD-Comparison-New.png)
 
 See thesis.pdf for more detail.
